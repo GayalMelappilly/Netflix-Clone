@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import "./Banner.css"
 import axios from '../../axios'
-import { API_KEY } from '../../Constants/constants'
+import { API_KEY, imageUrl } from '../../Constants/constants'
 
 function Banner() {
     const [movie, setMovie] = useState([])
@@ -12,7 +12,7 @@ function Banner() {
         })
     }, [])
     return (
-        <div className='banner' style={{backgroundImage: movie.backdrop_path ? `url(${'https://image.tmdb.org/t/p/w500' +movie.backdrop_path})` : ""}}>
+        <div className='banner' style={{backgroundImage: `url(${movie ? imageUrl+movie.backdrop_path : ""})` }}>
             <div className='content'>
                 <h1 className='title'>{movie ? movie.title : ''}</h1>
                 <div className='banner-buttons'>

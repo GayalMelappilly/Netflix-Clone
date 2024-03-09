@@ -15,7 +15,8 @@
 }
 
 .poster{
-    max-height: 300px;
+    cursor: pointer;
+    max-height: 350px;
     max-width: 90rem;
     margin-right: 10px;
     transition: 0.4s;
@@ -23,10 +24,26 @@
 }
 
 .poster:hover{
-    max-height: 320px;
+    transform: scale(1.1);
+    transition: 0.4s;
+}
+
+.smallPoster{
+    cursor: pointer;
+    max-height: 270px;
+    transition: 0.4s;
+    margin-right: 10px;
+}
+
+.smallPoster:hover{
+    transform: scale(1.06);
     transition: 0.4s;
 }
 
 /* .container{
     position: relative;
 } */
+
+.movie-title{
+    width: 50%;
+}

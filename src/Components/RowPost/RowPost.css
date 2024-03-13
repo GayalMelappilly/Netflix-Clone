@@ -24,7 +24,7 @@
 }
 
 .poster:hover{
-    transform: scale(1.1);
+    max-height: 380px;
     transition: 0.4s;
 }
 
@@ -36,7 +36,7 @@
 }
 
 .smallPoster:hover{
-    transform: scale(1.06);
+    max-height: 300px;
     transition: 0.4s;
 }
 
@@ -45,5 +45,5 @@
 } */
 
 .movie-title{
-    width: 50%;
+    width: 70%;
 }

@@ -3,13 +3,16 @@ import './Movies.css'
 import { API_KEY } from '../../Constants/constants'
 import axios from '../../axios'
 import { imageUrl } from '../../Constants/constants'
-import { AppContext } from '../../AppContext'
+import { MovieIdContext } from '../../AppContext'
 
 function Movies() {
+    alert('MOVIES')
     const [movie, setMovie] = useState([])
-    const {id, setId} = useContext(AppContext)
+    const {id} = useContext(MovieIdContext)
+    alert(id)
     useEffect(()=>{
-        axios.get(`movie/${id}?api_key=${API_KEY}`).then((response)=>{
+        alert(`movie/${id}??api_key=${API_KEY}&language=en-US`)
+        axios.get(`movie/${id}??api_key=${API_KEY}&language=en-US`).then((response)=>{
             console.log(response.data)
             setMovie(response.data)
         })
@@ -19,7 +22,7 @@ function Movies() {
             <div className='content'>
                 <h1 className='title'>{movie ? movie.original_title : ''}</h1>
                 <div className='banner-buttons'>
-                    <button className='button'>Play</button>
+                    <button className='button'>DOG</button>
                     <button className='button'>My list</button>
                 </div>
                 <h1 className='description'>{movie ? movie.overview : ''}</h1>   

@@ -3,11 +3,13 @@ import './RowPost.css'
 // import Youtube from 'react-youtube'
 import axios from '../../axios'
 import { useState } from 'react'
-import { AppContext } from '../../AppContext'
+import { MovieIdContext } from '../../AppContext'
+import { Link } from 'react-router-dom'
 // import { API_KEY } from '../../Constants/constants'
 
 function RowPost(props) {
     const [state, setState] = useState([])
+    const { setId } = useContext(MovieIdContext)
     // const [urlId, setUrlId] = useState()
     useEffect(() => {
         axios.get(props.url).then((response) => {
@@ -15,7 +17,8 @@ function RowPost(props) {
         }).catch(err => {
             alert('Network error')
         })
-    }, [])
+    }, [props.url])
+
     // const opts = {
     //     height: '390',
     //     width: '100%',
@@ -34,22 +37,28 @@ function RowPost(props) {
     //     })
     // }
 
-    const { id, setId } = useContext(AppContext)
+    function changeMovieId(id) {
+        setId(id)
+    }
 
     return (
         <div className='row'>
             <h2 className="title">{props.title}</h2>
             <div className='posters'>
                 {state.map((obj) => {
+
                     if (obj.poster_path == null) {
                         return (
                             console.log('IMAGE NOT FOUND')
                         )
                     } else {
                         let imgUrl = 'https://image.tmdb.org/t/p/w500' + obj.poster_path;
+
                         return (
                             <div className='container'>
-                                <a href={'/movies/' + obj.id}><img onClick={() => setId(obj.id)} className={props.isSmall ? 'smallPoster' : 'poster'} src={imgUrl} alt="" /></a>
+                                <Link to={`/movies/${obj.id}`}>
+                                    <img onClick={changeMovieId(obj.id)} className={props.isSmall ? 'smallPoster' : 'poster'} src={imgUrl} alt="" />
+                                </Link>
                                 {console.log(obj.title)}
                                 <p className='movie-title'>{obj.title}</p>
                             </div>

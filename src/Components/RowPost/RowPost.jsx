@@ -15,28 +15,6 @@ function RowPost(props) {
         })
     })
 
-    // const opts = {
-    //     height: '390',
-    //     width: '100%',
-    //     playerVars: {
-    //         autoplay: 1,
-    //     },
-    // }
-
-    // const handleMovie = (id)=>{
-    //     axios.get(`movie/${id}/videos?api_key=${API_KEY}&language=en-US`).then((response)=>{
-    //         if(response.data.results.length!==0){
-    //             setUrlId(response.data.results[0])
-    //         }else{
-    //             console.log('Trailer not found.')
-    //         }
-    //     })
-    // }
-
-    // function changeMovieId(id) {
-    //     setId(id)
-    // }
-
     return (
         <div className='row'>
             <h2 className="title">{props.title}</h2>
@@ -61,7 +39,7 @@ function RowPost(props) {
                     }
                 })}
             </div>
-            {/* { urlId && <Youtube opts={opts} videoId={urlId.key} /> } */}
+            
         </div>
     )
 }

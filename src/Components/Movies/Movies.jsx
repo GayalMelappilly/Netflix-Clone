@@ -12,7 +12,7 @@ function Movies() {
     useEffect(() => {
         // alert(`movie/${id}??api_key=${API_KEY}&language=en-US`)
         axios.get(`movie/${id}?api_key=${API_KEY}&language=en-US`).then((response) => {
-            console.log(response.data)
+            // console.log(response.data)
             setMovie(response.data)
         })
     }, [])

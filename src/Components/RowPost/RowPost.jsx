@@ -1,23 +1,19 @@
-import React, { useEffect, useContext } from 'react'
+import React, { useEffect } from 'react'
 import './RowPost.css'
-// import Youtube from 'react-youtube'
 import axios from '../../axios'
 import { useState } from 'react'
-import { MovieIdContext } from '../../AppContext'
-import { Link } from 'react-router-dom'
-// import { API_KEY } from '../../Constants/constants'
+import { Link, useParams } from "react-router-dom";
 
 function RowPost(props) {
     const [state, setState] = useState([])
-    const { setId } = useContext(MovieIdContext)
-    // const [urlId, setUrlId] = useState()
+    const { id } = useParams()
     useEffect(() => {
         axios.get(props.url).then((response) => {
             setState(response.data.results)
         }).catch(err => {
             alert('Network error')
         })
-    }, [props.url])
+    })
 
     // const opts = {
     //     height: '390',
@@ -37,9 +33,9 @@ function RowPost(props) {
     //     })
     // }
 
-    function changeMovieId(id) {
-        setId(id)
-    }
+    // function changeMovieId(id) {
+    //     setId(id)
+    // }
 
     return (
         <div className='row'>
@@ -49,17 +45,16 @@ function RowPost(props) {
 
                     if (obj.poster_path == null) {
                         return (
-                            console.log('IMAGE NOT FOUND')
+                            null
                         )
                     } else {
                         let imgUrl = 'https://image.tmdb.org/t/p/w500' + obj.poster_path;
 
                         return (
-                            <div className='container'>
-                                <Link to={`/movies/${obj.id}`}>
-                                    <img onClick={changeMovieId(obj.id)} className={props.isSmall ? 'smallPoster' : 'poster'} src={imgUrl} alt="" />
-                                </Link>
-                                {console.log(obj.title)}
+                            <div className='container' key={obj.id}>
+                                <Link to={'/movies/' + obj.id}>
+                                    <img className={props.isSmall ? 'smallPoster' : 'poster'} src={imgUrl} alt="" />
+                                </Link>                                
                                 <p className='movie-title'>{obj.title}</p>
                             </div>
                         )

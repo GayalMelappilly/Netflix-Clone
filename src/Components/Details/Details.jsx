@@ -26,29 +26,6 @@ function Details() {
 
     const { hours, minutes } = toHours(details.runtime)
 
-    // const handleMovie = (id) => {
-    //     axios.get(`movie/${id}/videos?api_key=${API_KEY}&language=en-US`).then((response) => {
-    //         if (response.data.results.length !== 0) {
-    //             setUrlId(response.data.results[0])
-    //             console.log(urlId)
-    //             // setPlay(true)
-    //             // alert(urlId.key)
-    //         } else {
-    //             console.log('Trailer not found.')
-    //         }
-    //     }, [id])
-    //     return (
-    //         <span>
-    //             <button className='button' >x</button>
-    //             {urlId && <YouTube opts={opts} videoId={urlId.key} />}
-    //         </span>
-    //     )
-    // }
-
-    // const closeVideo = () => {
-    //     setPlay(false)
-    // }
-
     const opts = {
         height: '550',
         width: '100%',
@@ -59,9 +36,10 @@ function Details() {
 
     return (
         <div className='details'>
-            <h1 className='title'>Overview</h1>
+            <h1 className='title'>About</h1>
+
             <div className="overview">
-                <p>{details.overview}</p>
+                <p>Overview : {details.overview}</p>
                 <br />
                 <p>Genres : {details && details.genres.map((obj) => {
                     return (
@@ -69,7 +47,7 @@ function Details() {
                     )
                 })} </p>
                 <br />
-                <p>Release Date : <span>{details.release_date}</span></p>
+                <p>Released Date : <span>{details.release_date}</span></p>
                 <br />
                 <p>Runtime : <span>{hours}hr {minutes}min</span></p>
                 <br />

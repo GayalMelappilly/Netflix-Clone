@@ -22,10 +22,10 @@ function Overview() {
     <div>
         <Movies />
         <Details />
+        <RowPost title='Cast' url={`movie/${id}/credits?api_key=${API_KEY}&language=en-US`} />
         {result !== 0 ? 
         <RowPost title='More Like This' url={`movie/${id}/recommendations?api_key=${API_KEY}&language=en-US`}/> 
         : <RowPost title='Netflix Originals' url={originals} />}
-        
     </div>
   )
 }

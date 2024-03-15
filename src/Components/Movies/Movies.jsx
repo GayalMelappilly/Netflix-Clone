@@ -8,17 +8,22 @@ import { useParams } from 'react-router-dom'
 function Movies() {
     // alert('MOVIES')
     const [movie, setMovie] = useState([])
+    const [imageUrlWithCacheBust, setImageUrlWithCacheBust] = useState('');
     const { id } = useParams()
     useEffect(() => {
         // alert(`movie/${id}??api_key=${API_KEY}&language=en-US`)
         axios.get(`movie/${id}?api_key=${API_KEY}&language=en-US`).then((response) => {
             // console.log(response.data)
             setMovie(response.data)
+            if (response.data.backdrop_path) {
+                setImageUrlWithCacheBust(`${imageUrl}${response.data.backdrop_path}?${Date.now()}`);
+            }
         })
-    }, [])
+    }, [id])
     return (
         <div>
-            <div className='banner' style={{ backgroundImage: `url(${movie ? imageUrl + movie.backdrop_path : ""})` }}>
+            { movie && (
+                <div className='banner' style={{ backgroundImage: `url(${imageUrlWithCacheBust})`}}>
                 <div className='content'>
                     <h1 className='title'>{movie ? movie.original_title : ''}</h1>
                     <div className='banner-buttons'>
@@ -29,6 +34,7 @@ function Movies() {
                 </div>
                 <div className="fade"></div>
             </div>
+            )}
         </div>
     )
 }

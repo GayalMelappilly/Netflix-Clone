@@ -1,9 +1,13 @@
 .details{
     margin-left: 40px;
     color: #ffffff;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
 }
+
 .overview{
-    max-width: 40%;
+    max-width: 45%;
     padding: 30px;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
@@ -56,3 +60,72 @@
     opacity: 0;
     visibility: hidden;
 }
+
+.crew{
+    width: 45%;
+    max-height: 30rem;
+    margin-top: 30px;
+}
+
+.list{
+    columns: 100px 2;
+    column-gap: 50px;
+}
+
+.crew-image{
+    height: 200px;
+    margin: 10px;
+}
+
+.crew-window {
+    display: flex;
+    position: fixed;
+    overflow: scroll;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    z-index: 999;
+    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+    flex-direction: row;
+    flex-wrap: wrap;
+    height: 30rem;
+    width: 48rem;
+    padding-top: 5;
+}
+
+.crew-window-content{
+    margin: 50px;
+}
+
+.crew-window::-webkit-scrollbar{
+    display: none;
+}
+
+.crew-name{
+    font-size: 12px;
+}
+
+.crew-window button.close-button {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    background-color: transparent;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.crew-window iframe {
+    width: 60rem;
+    height: 30rem;
+}
+
+.crew-window.hide {
+    opacity: 0;
+    visibility: hidden;
+}
+

@@ -8,12 +8,18 @@ import YouTube from 'react-youtube'
 function Details() {
     const [details, setDetails] = useState('')
     const [play, setPlay] = useState(false)
+    const [showCrew, setShowCrew] = useState(false)
     const { id } = useParams()
     const [urlId, setUrlId] = useState('')
+    const [crew, setCrew] = useState([])
 
     useEffect(() => {
         axios.get(`movie/${id}?api_key=${API_KEY}&language=en-US`).then((response) => {
             setDetails(response.data)
+            // alert(urlId.key)
+        })
+        axios.get(`movie/${id}/credits?api_key=${API_KEY}&language=en-US`).then((response) => {
+            setCrew(response.data.crew)
             // alert(urlId.key)
         })
     }, [id])
@@ -36,9 +42,8 @@ function Details() {
 
     return (
         <div className='details'>
-            <h1 className='title'>About</h1>
-
             <div className="overview">
+                <h1 className='title'>About</h1>
                 <p>Overview : {details.overview}</p>
                 <br />
                 <p>Genres : {details && details.genres.map((obj) => {
@@ -71,13 +76,48 @@ function Details() {
                 <br />
                 <br />
                 {play ? <span className='trailer-window'>
-                    <button className='close-button' onClick={()=>{
+                    <button className='close-button' onClick={() => {
                         setPlay(false)
                     }}>Close</button>
                     <br />
                     <br />
                     {urlId && <YouTube opts={opts} videoId={urlId.key} />}
                 </span> : null}
+            </div>
+
+            <div className="crew">
+                <h1 className='title'>Crew</h1>
+                <div className="list">
+                    {crew.slice(0, 28).map((obj) => {
+                        return (
+                            <p>{obj.name} - {obj.job}</p>
+                        )
+                    })}
+                </div>
+                <button onClick={() => {
+                    setShowCrew(true)
+                }} className='button' style={{ marginTop: '20px', float: "center" }}>Full crew</button>
+                <br />
+                <br />
+
+                {showCrew ? <div className="crew-window-content">
+                    <span className='crew-window'>
+                        <button className='close-button' onClick={() => {
+                            setShowCrew(false)
+                        }}>Close</button>
+                        <br />
+                        <br />
+                        {crew.map((obj) => {
+                            return (
+                                obj.profile_path ? <div>
+                                    <img src={imageUrl + obj.profile_path} alt="" className='crew-image' />
+                                    <p className='crew-name'>{obj.name} <br /> {obj.job}</p>
+                                </div> : null
+                            )
+                        })}
+
+                    </span>
+                </div> : null}
             </div>
         </div>
     )

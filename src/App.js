@@ -6,6 +6,7 @@ import NavBar from './Components/NavBar/NavBar'
 import Overview from './Container/About';
 import Home from './Container/Home'
 import ScrollToTop from './ScrollToTop';
+import Footer from './Components/Footer/Footer';
 
 // import axios from 'axios'
 
@@ -22,6 +23,7 @@ function App() {
           </Routes>
         </ScrollToTop>
       </Router>
+      {/* <Footer /> */}
     </div >
   );
 }

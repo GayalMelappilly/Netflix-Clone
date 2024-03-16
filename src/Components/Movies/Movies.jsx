@@ -4,6 +4,8 @@ import { API_KEY } from '../../Constants/constants'
 import axios from '../../axios'
 import { imageUrl } from '../../Constants/constants'
 import { useParams } from 'react-router-dom'
+import { faCircleLeft } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 function Movies() {
     // alert('MOVIES')

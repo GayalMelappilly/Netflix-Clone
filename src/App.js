@@ -23,7 +23,7 @@ function App() {
           </Routes>
         </ScrollToTop>
       </Router>
-      {/* <Footer /> */}
+      <Footer />
     </div >
   );
 }

@@ -8,7 +8,7 @@ import { API_KEY } from '../Constants/constants'
 import { useParams } from 'react-router-dom'
 import { originals } from '../url'
 
-function Overview() {
+function About() {
     const { id } = useParams()
     const [result, setResult] = useState([])
     useEffect(()=>{
@@ -22,12 +22,12 @@ function Overview() {
     <div>
         <Movies />
         <Details />
-        <RowPost title='Cast' url={`movie/${id}/credits?api_key=${API_KEY}&language=en-US`} />
+        <RowPost title='Cast' url={`movie/${id}/credits?api_key=${API_KEY}&language=en-US`} noHover />
         {result !== 0 ? 
-        <RowPost title='More Like This' url={`movie/${id}/recommendations?api_key=${API_KEY}&language=en-US`}/> 
-        : <RowPost title='Netflix Originals' url={originals} />}
+        <RowPost title='More Like This' url={`movie/${id}/recommendations?api_key=${API_KEY}&language=en-US`} isSmall /> 
+        : <RowPost title='Netflix Originals' url={originals} isSmall />}
     </div>
   )
 }
 
-export default Overview
+export default About

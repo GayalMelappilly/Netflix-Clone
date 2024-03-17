@@ -35,6 +35,13 @@
     margin-right: 10px;
 }
 
+.castPoster{
+    cursor: pointer;
+    max-height: 250px;
+    transition: 0.4s;
+    margin-right: 10px;
+}
+
 .smallPoster:hover{
     max-height: 300px;
     transition: 0.4s;

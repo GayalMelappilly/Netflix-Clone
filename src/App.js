@@ -3,8 +3,9 @@ import React, { useState } from 'react';
 import "./App.css"
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import NavBar from './Components/NavBar/NavBar'
-import Overview from './Container/About';
+import About from './Container/About';
 import Home from './Container/Home'
+import Mylist from './Container/Mylist';
 import ScrollToTop from './ScrollToTop';
 import Footer from './Components/Footer/Footer';
 
@@ -13,13 +14,14 @@ import Footer from './Components/Footer/Footer';
 function App() {
   return (
     <div className="App">
-      <NavBar />
-      <br/>
+      <br />
       <Router>
         <ScrollToTop>
+          <NavBar />
           <Routes >
             <Route path='/' element={<Home />} />
-            <Route path='/movies/:id' element={<Overview />} />
+            <Route path='/movies/:id' element={<About />} />
+            <Route path='/mylist' element={<Mylist />} />
           </Routes>
         </ScrollToTop>
       </Router>

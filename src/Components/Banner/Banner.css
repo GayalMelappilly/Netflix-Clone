@@ -1,12 +1,13 @@
 .banner{
     background-size: cover;
+    margin-top: 30px;
     height: 600px;
     color: white;
     background-color: none;
 }
 
 .content{
-    padding-top: 140px;
+    padding-top: 100px;
     height: 190px;
     padding-left: 50px;
 }
@@ -47,6 +48,6 @@
 }
 
 .fade{
-    height: 17rem;
+    height: 14rem;
     background-image: linear-gradient(180deg, transparent, rgba(37, 37, 37, .61), #111);
 }

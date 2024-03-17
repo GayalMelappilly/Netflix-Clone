@@ -29,7 +29,7 @@ function Movies() {
     function displayTimer(){
         setTimeout(() => {
             setAddToList(false)
-        }, 1000);
+        }, 5000);
     }
 
     return (

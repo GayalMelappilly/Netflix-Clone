@@ -4,16 +4,27 @@
 }
 
 .list-msg {
-    background-color: rgba(0, 0, 0, 0.819);
-    color: white;
+    background-color: rgba(0, 0, 0, 0.541);
+    color: rgb(255, 255, 255);
     position: absolute;
     left: 0;
     right: 0;
     margin-left: auto;
     margin-right: auto;
-    width: 200px;
+    width: 160px;
     border-radius: 10px;
     text-align: center;
-    padding: 20px;
-    transition: all 0.5s ease;
+    padding: 15px;
+    -webkit-animation: fadeinout 1s linear forwards;
+    animation: fadeinout 1s linear forwards;
 }
+
+@-webkit-keyframes fadeinout {
+    0%,100% { opacity: 0; }
+    50% { opacity: 1; }
+  }
+  
+  @keyframes fadeinout {
+    0%,100% { opacity: 0; }
+    50% { opacity: 1; }
+  }

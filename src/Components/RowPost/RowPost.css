@@ -18,21 +18,22 @@
     cursor: pointer;
     max-height: 350px;
     max-width: 90rem;
-    margin-right: 10px;
-    transition: 0.4s;
+    margin-right: 40px;
+    transition: transform .3s;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     
 }
 
 .poster:hover{
-    max-height: 380px;
-    transition: 0.4s;
+    transform: scale(1.1);
+    transition: .4s;
 }
 
 .smallPoster{
     cursor: pointer;
     max-height: 270px;
     transition: 0.4s;
-    margin-right: 10px;
+    margin-right: 30px;
 }
 
 .castPoster{
@@ -43,7 +44,7 @@
 }
 
 .smallPoster:hover{
-    max-height: 300px;
+    transform: scale(1.1);
     transition: 0.4s;
 }
 

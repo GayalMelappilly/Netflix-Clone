@@ -57,9 +57,12 @@ function RowPost(props) {
                             return (
                                 <div className='container' key={obj.id}>
                                     <Link to={'/movies/' + obj.id}>
+                                        <div>
                                         <img className={props.isSmall ? 'smallPoster' : 'poster'} src={imgUrl} alt="" />
+                                        <p className='movie-title'>{obj.title}</p>
+                                        </div>
                                     </Link>
-                                    <p className='movie-title'>{obj.title}</p>
+                                    
                                 </div>
                             )
                         }

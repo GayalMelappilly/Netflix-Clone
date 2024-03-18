@@ -6,6 +6,7 @@ import { Link, useParams } from "react-router-dom";
 
 function RowPost(props) {
     const [state, setState] = useState([''])
+    // const [hover, setHover] = useState(false)
     const { id } = useParams()
     useEffect(() => {
         props.title === 'Cast' ?
@@ -21,6 +22,7 @@ function RowPost(props) {
                 alert('Network error')
             })
     }, [props.url, id, props.title])
+
     return (
         <div className='row'>
             <h2 className="title">{props.title}</h2>
@@ -55,14 +57,13 @@ function RowPost(props) {
                             let imgUrl = 'https://image.tmdb.org/t/p/w500' + obj.poster_path;
 
                             return (
-                                <div className='container' key={obj.id}>
+                                <div className='container' id='movie-poster' key={obj.id}>
                                     <Link to={'/movies/' + obj.id}>
                                         <div>
-                                        <img className={props.isSmall ? 'smallPoster' : 'poster'} src={imgUrl} alt="" />
-                                        <p className='movie-title'>{obj.title}</p>
+                                            <img className={props.isSmall ? 'smallPoster' : 'poster'} src={imgUrl} alt=""/>
+                                            <p className='movie-title'>{obj.title}</p>
                                         </div>
                                     </Link>
-                                    
                                 </div>
                             )
                         }

@@ -8,6 +8,7 @@ import Home from './Container/Home'
 import Mylist from './Container/Mylist';
 import ScrollToTop from './ScrollToTop';
 import Footer from './Components/Footer/Footer';
+import Browse from './Container/Browse';
 
 // import axios from 'axios'
 
@@ -22,6 +23,7 @@ function App() {
             <Route path='/' element={<Home />} />
             <Route path='/movies/:id' element={<About />} />
             <Route path='/mylist' element={<Mylist />} />
+            <Route path='/browse' element={<Browse />} />
           </Routes>
         </ScrollToTop>
       </Router>

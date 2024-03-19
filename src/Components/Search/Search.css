@@ -1,9 +1,16 @@
 .search-div {
     /* Magic here */
     display: flex;
+    width: fit-content;
     justify-content: center;
     align-items: center;
-    padding-top: -900px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: -50px;
+}
+
+#browse-title{
+    width: max-content;
 }
 
 .search-input{

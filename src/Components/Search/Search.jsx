@@ -9,13 +9,13 @@ import RowPost from '../RowPost/RowPost'
 
 function Search() {
   const navigate = useNavigate()
-  const [movie, setMovie] = useState('')
+  const [movie, setMovie] = useState('top')
   // const [displayMv, setDisplayMv] = useState('')
   useEffect(() => {
     // alert(`movie/${id}??api_key=${API_KEY}&language=en-US`)
     axios.get(`search/movie?api_key=${API_KEY}&query=${movie}&include_adult=false&language=en-US&page=1`).then((response) => {
         // console.log(response.data)
-        console.log(response.data)
+        console.log(response.data.results)
     })
 }, [movie])
   return (
@@ -28,7 +28,7 @@ function Search() {
         {console.log("SEARCH : "+movie)}
       </div>
       <div className='display'>
-        {movie.total_results === 0 ? <RowPost title="Not Found" /> : <RowPost title="Results" url={`search/movie?api_key=${API_KEY}&query=${movie}&include_adult=false&language=en-US&page=1`} isSmall />}
+        {movie.length === 0 && movie === '' ? null : movie.length === 0 && movie !== '' ? <RowPost title="Not Found" /> : <RowPost title="Results" url={`search/movie?api_key=${API_KEY}&query=${movie}&include_adult=false&language=en-US&page=1`} isSmall />}
       </div>
     </div>
   )

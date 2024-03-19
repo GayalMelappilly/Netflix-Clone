@@ -13,7 +13,7 @@ function RowPost(props) {
             axios.get(props.url).then((response) => {
                 setState(response.data.cast)
             }).catch(err => {
-                alert('Network error')
+                alert('Network error'+err)
             })
             :
             axios.get(props.url).then((response) => {

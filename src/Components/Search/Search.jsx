@@ -9,7 +9,7 @@ import RowPost from '../RowPost/RowPost'
 
 function Search() {
   const navigate = useNavigate()
-  const [movie, setMovie] = useState('top')
+  const [movie, setMovie] = useState('')
   // const [displayMv, setDisplayMv] = useState('')
   useEffect(() => {
     // alert(`movie/${id}??api_key=${API_KEY}&language=en-US`)
